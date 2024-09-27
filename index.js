@@ -171,8 +171,10 @@ signUpBtn.addEventListener('click', (e) => {
             fullName.parentNode.parentNode.insertBefore(span, fullName.parentElement.nextSibling)
         }
     } else {
-        fullName.parentElement.classList.remove('invalid');
-        fullName.parentElement.nextSibling.remove();
+        if (fullName.parentElement.nextSibling.tagName == 'SPAN') {
+            fullName.parentElement.classList.remove('invalid');
+            fullName.parentElement.nextSibling.remove();
+        }
     }
 
     if (!emailChecker(email.value)) {
@@ -184,8 +186,10 @@ signUpBtn.addEventListener('click', (e) => {
             email.parentNode.parentNode.insertBefore(span, email.parentElement.nextSibling)
         }
     } else {
-        email.parentElement.classList.remove('invalid');
-        email.parentElement.nextSibling.remove();
+        if (email.parentElement.nextSibling.tagName == 'SPAN') {
+            email.parentElement.classList.remove('invalid');
+            email.parentElement.nextSibling.remove();
+        }
     }
     const passwordCheckerResult = passwordChecker(password.value);
     if (!passwordCheckerResult.isValid) {
@@ -252,8 +256,10 @@ loginBtn.addEventListener('click', (e) => {
             loginEmailInput.parentNode.parentNode.insertBefore(span, loginEmailInput.parentElement.nextSibling)
         }
     } else {
-        loginEmailInput.parentElement.classList.remove('invalid');
-        loginEmailInput.parentElement.nextSibling.remove();
+        if (loginEmailInput.parentElement.nextSibling.tagName == 'SPAN') {
+            loginEmailInput.parentElement.classList.remove('invalid');
+            loginEmailInput.parentElement.nextSibling.remove();
+        }
     }
     if (loginPasswordInput.value != '123456') {
         if (loginPasswordInput.parentElement.nextSibling.tagName != 'SPAN') {
@@ -264,7 +270,9 @@ loginBtn.addEventListener('click', (e) => {
             loginPasswordInput.parentNode.parentNode.insertBefore(span, loginPasswordInput.parentElement.nextSibling)
         }
     } else {
-        loginPasswordInput.parentElement.classList.remove('invalid');
-        loginPasswordInput.parentElement.nextSibling.remove();
+        if (loginPasswordInput.parentElement.nextSibling.tagName == 'SPAN') {
+            loginPasswordInput.parentElement.classList.remove('invalid');
+            loginPasswordInput.parentElement.nextSibling.remove();
+        }
     }
 });
