@@ -19,10 +19,25 @@ body {
     font-family: "Poppins", sans-serif;
     font-weight: 400;
     font-style: normal;
+    position: relative;
+    overflow-x: hidden;
 }
 
-.container {
+.container,
+.login-container {
     display: flex;
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    transform: translateX(-100%);
+    transition: all 0.85s ease-in-out;
+}
+
+.login-container.active,
+.container.active {
+    transform: translateX(0);
+    opacity: 1;
 }
 
 .left {
@@ -70,12 +85,13 @@ body {
     .left {
         display: none;
     }
+
     .right {
-        width: 100%!important;
+        width: 100% !important;
     }
 
-    .right > div {
-        padding: 128px!important;
+    .right>div {
+        padding: 128px !important;
     }
 }
 
@@ -130,7 +146,8 @@ body {
     cursor: pointer;
 }
 
-.right form button {
+.right form button,
+.right button {
     width: 100%;
     height: 44px;
     font-size: 18px;
@@ -141,7 +158,18 @@ body {
     margin-top: 16px;
 }
 
-.goto-login {
+.right button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+}
+
+.right button>span {
+    color: rgba(255, 255, 255, 0.778);
+}
+
+.change {
     align-self: center;
     font-size: 12px;
 
@@ -168,4 +196,46 @@ body {
 .right .footer a {
     color: var(--primaryColor);
     text-decoration: none;
+}
+
+.login-container {}
+
+.login-container .right .forgot {
+    display: flex;
+    justify-content: space-between;
+}
+
+.login-container .right .forgot>a {
+    color: var(--primaryColor);
+    font-size: 12px;
+}
+
+.login-container .or {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    height: 64px;
+    align-items: center;
+}
+
+.login-container .or::before {
+    content: '';
+    position: absolute;
+    top: 31px;
+    /* right: 50px; */
+    margin-right: 145px;
+    width: 72px;
+    height: 2px;
+    background-color: rgba(105, 105, 105, 0.298);
+}
+
+.login-container .or::after {
+    content: '';
+    position: absolute;
+    top: 31px;
+    /* left: 50px; */
+    margin-left: 145px;
+    width: 72px;
+    height: 2px;
+    background-color: rgba(105, 105, 105, 0.298);
 }
